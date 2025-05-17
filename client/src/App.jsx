@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-console.log(">>>> VITE_BACKEND_URL is:", import.meta.env.VITE_BACKEND_URL);
+console.log(">>>> VITE_API_URL is:", import.meta.env.VITE_API_URL);
 
 export default function FeronChat() {
   const [walletAddress, setWalletAddress] = useState("");
