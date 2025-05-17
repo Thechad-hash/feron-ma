@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-console.log(">>>> VITE_API_URL is:", import.meta.env.VITE_API_URL);
+console.log(">>>> VITE_BACKEND_URL is:", import.meta.env.VITE_BACKEND_URL);
 
 export default function FeronChat() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -9,7 +9,7 @@ export default function FeronChat() {
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef(null);
 
-    // 🟡 Connect Wallet + Auto-detect
+  // 🟡 Connect Wallet + Auto-detect
   useEffect(() => {
     const checkWalletConnection = async () => {
       if (window.ethereum) {
@@ -44,7 +44,7 @@ export default function FeronChat() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/feron`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/feron`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: [...messages, userMessage] }),
@@ -78,7 +78,7 @@ export default function FeronChat() {
     const formData = new FormData();
     formData.append("file", file);
 
-    await fetch(`${import.meta.env.VITE_API_URL}/api/upload`, {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/upload`, {
       method: "POST",
       body: formData,
     });
@@ -91,7 +91,7 @@ export default function FeronChat() {
 
   return (    
     <><div style={{ display: "flex", gap: "12px", justifyContent: "center", margin: "20px 0" }}>
-        <a
+      <a
         href="https://ferontriallicensebip.vercel.app/"
         style={{
           padding: "10px 20px",
@@ -102,21 +102,8 @@ export default function FeronChat() {
           textDecoration: "none"
         }}
       >
-        Go to License MY Ai Page
+        Go to License MyAi Page
       </a>
-      <a
-        href="https://feron-platform-smart-contracts-ui.vercel.app/"
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#10B981",
-          color: "white",
-          borderRadius: "6px",
-          fontSize: "14px",
-          textDecoration: "none"
-        }}
-      >
-        Go to Register MY Ai Page
-      </a>  
     </div><div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "24px", fontWeight: "bold", textAlign: "center" }}>
           FERON AI Assistant
@@ -193,6 +180,13 @@ export default function FeronChat() {
               <button onClick={sendMessage} disabled={isLoading} style={{ padding: "8px 16px" }}>
                 {isLoading ? "..." : "Send"}
               </button>
+            </div>
+
+            <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "6px" }}>
+              <label style={{ display: "block", marginBottom: "6px" }}>
+                Upload File (Tier 1)
+              </label>
+              <input type="file" ref={fileInputRef} onChange={handleFileUpload} />
             </div>
           </>
         )}
