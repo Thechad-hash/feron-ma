@@ -109,7 +109,7 @@ export default function FeronChat() {
           FERON AI Assistant
         </h1>
         <p style={{ textAlign: "center", color: "#666" }}>
-          What do you want to know about the AI tools platform?
+          What can I help you with today?
         </p>
 
         {!walletAddress ? (
