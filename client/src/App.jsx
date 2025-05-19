@@ -106,7 +106,7 @@ export default function FeronChat() {
       </a>
     </div><div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "24px", fontWeight: "bold", textAlign: "center" }}>
-          FERON AI Assistant
+          FERON AI Manufacturing Assistant
         </h1>
         <p style={{ textAlign: "center", color: "#666" }}>
           What can I help you with today?
