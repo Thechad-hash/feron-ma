@@ -38,7 +38,7 @@ app.post('/api/feron', async (req, res) => {
   try {
     const { messages } = req.body;
 
-    let model = "gpt-3.5-turbo";
+    let model = "gpt-4o";//gpt-3.5-turbo
     let finalMessages = [
       { role: 'system', content: 'You are FERON, a manufacturing assistant for any part of the manufacturing industry, here to help anyone in the mission at hand...' }, 
       ...messages
